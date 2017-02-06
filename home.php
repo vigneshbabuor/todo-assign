@@ -59,7 +59,7 @@ if (!isset($_SESSION['id'])) {
 <script>
 $(document).ready(function()
 {
-var base_url="http://localhost:81/SocialProject/";
+var base_url="http://139.59.18.38/todo-assign/";
 var url,encodedata,apiKey,user_id;
 apiKey=$('#apiKey').val();
 user_id=$('#user_id').val();
