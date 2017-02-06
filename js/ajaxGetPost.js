@@ -15,7 +15,6 @@ success:function(data){
 success.call(this, data);
 },
 error:function(data){
-  console.log(data);
 alert("Error In Connecting");
 }
 });
