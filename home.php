@@ -5,7 +5,7 @@ $_SESSION['id']='1';
 $_SESSION['email']='vigneshbabuor@gmail.com';
 if (!isset($_SESSION['id'])) {
     // Redirection to login page twitter or facebook
-//    header("location: index.php");
+    header("location: index.php");
 }
 ?>
 <!DOCTYPE html>
