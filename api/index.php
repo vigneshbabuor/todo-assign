@@ -8,6 +8,7 @@ $app = new \Slim\Slim();
 $app->get('/users','getUsers');
 $app->post('/updates','getUserUpdates');
 $app->post('/insertUpdate', 'insertUpdate');
+$app->get('/getcount/:user_id', 'getPendingCount');
 $app->delete('/updates/delete/:update_id/:user_id/:apiKey','deleteUpdate');
 $app->post('/updates/checked/:update_id/:user_id/:apiKey','checkedUpdate');
 $app->get('/users/search/:query','getUserSearch');
@@ -33,7 +34,7 @@ function getUserUpdates() {
 	$update = json_decode($request->getBody());
 	$apiKey=$update->apiKey;
 	$sever_apiKey=apiKey($update->user_id);
-	$sql = "SELECT A.user_id, A.username, A.name, A.profile_pic, B.update_id, B.user_update, B.created FROM users A, updates B WHERE A.user_id=B.user_id_fk  ORDER BY B.update_id DESC";
+	$sql = "SELECT A.user_id, A.username, A.name, A.profile_pic, B.status, B.update_id, B.user_update, B.created FROM users A, updates B WHERE A.user_id=B.user_id_fk  ORDER BY B.update_id DESC";
 	try {
 		if($apiKey == $sever_apiKey)
 	{
@@ -44,6 +45,21 @@ function getUserUpdates() {
 		$db = null;
 		echo '{"updates": ' . json_encode($updates) . '}';
 	}
+	} catch(PDOException $e) {
+	    //error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function getPendingCount($user_id){
+	$sql = "SELECT count(status) as count FROM users A, updates B WHERE A.user_id=B.user_id_fk and A.user_id=".$user_id." and B.status='0'";
+	try {
+		$db = getDB();
+		$stmt = $db->prepare($sql);
+		$stmt->execute();
+		$updates = $stmt->fetchAll(PDO::FETCH_OBJ);
+		$db = null;
+		echo '{"updates": ' . json_encode($updates) . '}';
 	} catch(PDOException $e) {
 	    //error_log($e->getMessage(), 3, '/var/tmp/php.log');
 		echo '{"error":{"text":'. $e->getMessage() .'}}';

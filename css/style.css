@@ -1,6 +1,6 @@
 body
 {
-font-family:arial
+font-family:arial;background-color: #926b31;
 }
 #container
 {
@@ -96,7 +96,6 @@ margin-bottom:20px;
 .task-list {
 	width: 88%;
 	min-height: 300px;
-	background: #fff;
 	margin-top: 40px;
 	padding: 22px 6%;
 }
@@ -108,11 +107,10 @@ margin-bottom:20px;
 }
 
 .task-list li span {
-	width: 86%;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	float: left;
+	margin:0px auto;
 }
 
 /* ========================================================
@@ -122,7 +120,6 @@ margin-bottom:20px;
 
 .todo {
     position: relative;
-    width: 260px;
     margin: 0 auto;
     padding: 12px 0;
     background: #fff;
@@ -168,17 +165,18 @@ margin-bottom:20px;
     border-top: 0;
 }
 
-.todo-list { border-top: 1px solid #e6ebed;padding-left: 0px; }
+.todo-list { padding-left: 0px; }
 
 .todo-list li {
     position: relative;
-    padding: 7px 15px 7px 50px;
+		padding: 7px 14px 7px 40px;
     line-height: 21px;
     font-size: 12px;
     color: #8b8f97;
     border-bottom: 1px solid #e6ebed;
 }
-
+.pending-count{margin:10px;}
+.todo-list li.checked{text-decoration: line-through}
 input[type=checkbox] {
   display: none;
 }
@@ -227,7 +225,7 @@ input[type=checkbox]:checked + .toggle:after{
     height: 15px;
     background: #faf9f9;
     border: 1px solid #6bb3ca;
-    border-radius: 2px;
+    border-radius: 7px;
     position: absolute;
     top: 9px;
     left: 9px;
