@@ -1,10 +1,13 @@
 <?php
-//Always place this code at the top of the Page
-session_start();
+require('api/db.php');
+$_SESSION['username']='vignesh';
+$_SESSION['id']='1';
+$_SESSION['email']='vigneshbabuor@gmail.com';
 if (!isset($_SESSION['id'])) {
     // Redirection to login page twitter or facebook
-    header("location: index.php");
+//    header("location: index.php");
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,9 +15,9 @@ if (!isset($_SESSION['id'])) {
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Task list</title>
 <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <link href='css/style.css' rel='stylesheet' type='text/css'/>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

@@ -2,7 +2,7 @@
 session_start();
 $_SESSION['uid']='1';
 $session_uid=$_SESSION['uid'];
-define("SITE_KEY", "yoursitekey");
+define("SITE_KEY", "todo-application");
 
 function getDB() {
 	$dbhost="localhost";

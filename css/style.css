@@ -7,6 +7,9 @@ font-family:arial
 margin:0 auto;
 width:600px;
 }
+.navbar-nav .active{
+color: white;
+margin: 16px 0px 14px 0px;}
 .stbody
 {
 min-height:70px;
