@@ -1,7 +1,7 @@
 <?php
 $dbhost="localhost";
 $dbuser="root";
-$dbpass="";
+$dbpass="Sqlmyp.ssword1";
 $dbname="socialproject";
 $db = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
 ?>
