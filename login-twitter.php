@@ -5,7 +5,7 @@ session_start();
 
 $twitteroauth = new TwitterOAuth(YOUR_CONSUMER_KEY, YOUR_CONSUMER_SECRET);
 // Requesting authentication tokens, the parameter is the URL we will be redirected to
-$request_token = $twitteroauth->getRequestToken('https://to-do-assign.herokuapp.com/getTwitterData.php');
+$request_token = $twitteroauth->getRequestToken('http://139.59.18.38/todo-assign/getTwitterData.php');
 
 // Saving them into the session
 
